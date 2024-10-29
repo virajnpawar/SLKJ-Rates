@@ -1,167 +1,146 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enter Rates</title>
-    <style>
-        /* Basic reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Center the form container */
-        body,
-        html {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-        }
-
-        #infoForm {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: flex-start;
-            align-items: center;
-        }
-
-        #erate {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .container {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 24px;
-            color: #333;
-        }
-
-        .section {
-            margin-bottom: 20px;
-        }
-
-        .section h2 {
-            font-size: 18px;
-            color: #007bff;
-            margin-bottom: 10px;
-        }
-
-        label {
-            display: block;
-            font-size: 14px;
-            color: #666;
-            text-align: left;
-        }
-
-        input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        input[type="number"]:focus {
-            outline: none;
-            border-color: #007bff;
-            box-shadow: 0 0 4px rgba(0, 123, 255, 0.2);
-        }
-
-        button {
-            width: 30%;
-            padding: 10px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 20px;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <h1>Enter Rates</h1>
-        <form id="infoForm">
-            <div id="erate">
-                <!-- Sell Section -->
-                <div class="section">
-                    <h2>Sell Rates</h2>
-                    <label for="S18">18 Carat Sell:</label>
-                    <input type="number" id="S18" name="S18" required>
-                    <label for="S22">22 Carat Sell:</label>
-                    <input type="number" id="S22" name="S22" required>
-                    <label for="S23">23 Carat Sell:</label>
-                    <input type="number" id="S23" name="S23" required>
-                    <label for="S24">24 Carat Sell:</label>
-                    <input type="number" id="S24" name="S24" required>
-                </div>
-
-                <!-- Buy Section -->
-                <div class="section">
-                    <h2>Buy Rates</h2>
-                    <label for="B18">18 Carat Buy:</label>
-                    <input type="number" id="B18" name="B18" required>
-                    <label for="B22">22 Carat Buy:</label>
-                    <input type="number" id="B22" name="B22" required>
-                    <label for="B23">23 Carat Buy:</label>
-                    <input type="number" id="B23" name="B23" required>
-                    <label for="B24">24 Carat Buy:</label>
-                    <input type="number" id="B24" name="B24" required>
-                </div>
-
-                <!-- Silver Section -->
-                <div class="section">
-                    <h2>Silver Rates</h2>
-                    <label for="FSil">Fine Silver:</label>
-                    <input type="number" id="FSil" name="FSil" required>
-                    <label for="Silmod">Silver Mod:</label>
-                    <input type="number" id="Silmod" name="Silmod" required>
-                </div>
-            </div>
-
-            <button type="button" onclick="submitForm()">Submit</button>
-        </form>
-    </div>
-
-    <script>
-        function submitForm() {
-            const formElements = document.getElementById("infoForm").elements;
-            for (let i = 0; i < formElements.length; i++) {
-                if (formElements[i].type === "number") {
-                    localStorage.setItem(formElements[i].id, formElements[i].value);
-                }
+ <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Enter Rates</title>
+        <style>
+            /* Basic reset */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
             }
-            window.location.href = "rates.html"; // Redirect to display page
-        }
-    </script>
-</body>
-
-</html>
+    
+            /* Center the form container */
+            body, html {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: Arial, sans-serif;
+                background-color: #f5f5f5;
+            }
+    
+            .container {
+                background-color: #ffffff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+                width: 300px;
+            }
+    
+            h1 {
+                text-align: center;
+                margin-bottom: 20px;
+                font-size: 24px;
+                color: #333;
+            }
+    
+            .section {
+                margin-bottom: 20px;
+            }
+    
+            label {
+                display: block;
+                font-size: 14px;
+                color: #666;
+                text-align: left;
+            }
+    
+            input[type="number"] {
+                width: 100%;
+                padding: 10px;
+                margin-top: 5px;
+                margin-bottom: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 14px;
+            }
+    
+            input[type="number"]:focus {
+                outline: none;
+                border-color: #007bff;
+                box-shadow: 0 0 4px rgba(0, 123, 255, 0.2);
+            }
+    
+            button {
+                width: 100%;
+                padding: 10px;
+                font-size: 16px;
+                font-weight: bold;
+                color: #ffffff;
+                background-color: #007bff;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                margin-top: 20px;
+            }
+    
+            button:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Enter Base Prices</h1>
+            <form id="infoForm">
+                <!-- Gold and Silver Price Section -->
+                <div class="section">
+                    <label for="goldPrice">Gold Price:</label>
+                    <input type="number" id="goldPrice" name="goldPrice" required>
+                    
+                    <label for="silverPrice">Silver Price:</label>
+                    <input type="number" id="silverPrice" name="silverPrice" required>
+                </div>
+                
+                <button type="button" onclick="calculateRates()">Calculate Rates</button>
+            </form>
+        </div>
+    
+        <script>
+            function calculateRates() {
+                const goldPrice = parseFloat(document.getElementById("goldPrice").value);
+                const silverPrice = parseFloat(document.getElementById("silverPrice").value);
+        
+                if (isNaN(goldPrice) || isNaN(silverPrice)) {
+                    alert("Please enter valid numbers for Gold and Silver Prices.");
+                    return;
+                }
+        
+                // Calculate rates based on formulas and round them up
+                const S18 = Math.ceil((goldPrice * 1.01) * 0.78);
+                const S22 = Math.ceil((goldPrice * 1.01) * 0.94);
+                const S23 = Math.ceil((goldPrice * 1.01) * 0.98);
+                const S24 = Math.ceil(goldPrice * 1.01);
+        
+                const B18 = Math.ceil(S18 * 0.97);
+                const B22 = Math.ceil(S22 * 0.97);
+                const B23 = Math.ceil(S23 * 0.97);
+                const B24 = Math.ceil(S24 * 0.985);
+        
+                const FSil = Math.ceil(silverPrice + 1000);
+                const Silmod = Math.ceil(FSil * 0.97);
+        
+                // Store values in localStorage (or display as per your requirements)
+                localStorage.setItem("S18", S18);
+                localStorage.setItem("S22", S22);
+                localStorage.setItem("S23", S23);
+                localStorage.setItem("S24", S24);
+                localStorage.setItem("B18", B18);
+                localStorage.setItem("B22", B22);
+                localStorage.setItem("B23", B23);
+                localStorage.setItem("B24", B24);
+                localStorage.setItem("FSil", FSil);
+                localStorage.setItem("Silmod", Silmod);
+        
+                // Redirect or display values
+                alert("Rates calculated and saved successfully!");
+                window.location.href = "rates.html"; // Redirect to a page to display values (or handle as needed)
+            }
+        </script>
+    </body>
+    </html>
+    
